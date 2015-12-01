@@ -11,12 +11,13 @@ public class Demo1 implements AiInterface
     private float targetSpeed;
 
     private String infraredSignal;
-    private String previousInfraredSignal;
     private int detectionLevel;
 
-    private int waitingTime = 0;
-    private boolean direction = false;
+    private int timoutTimer = 0;
+
     private boolean isTurning = false;
+    private int turnTimeLeft = 0;
+
     public Demo1(BoeBotInterface boeBot)
     {
         this.boeBot = boeBot;
@@ -25,66 +26,71 @@ public class Demo1 implements AiInterface
     public void update(int deltaTime)
     {
         setup();
-        previousInfraredSignal = infraredSignal;
-        switch(infraredSignal)
+
+        System.out.println(infraredSignal);
+
+        if (!isTurning)
         {
-            case "FORWARD":
-            targetSpeed += 10;
-            break;
-            case "BACKWARD":
-            targetSpeed -= 10;
-            break;
-            case "TURN_LEFT":
+            switch(infraredSignal)
+            {
+                case "FORWARD":
+                targetSpeed += 10;
+                timoutTimer = 1000;
+                break;
+                case "BACKWARD":
+                targetSpeed -= 10;
+                timoutTimer = 1000;
+                break;
 
-            break;
-            case "TURN_RIGHT":
+                case "STOP":
+                targetSpeed = 0;
+                break;
 
-            break;
-            case "STOP":
-            targetSpeed = 0;
-            break;
+                case "TURN45DEG_LEFT":
+                isTurning = true;
+                turnTimeLeft = -490;
+                break;
 
-            case "TURN45DEG_LEFT":
-            waitingTime = 490;
-            direction = false;
-            isTurning = true;
-            break;
+                case "TURN90DEG_LEFT":
+                isTurning = true;
+                turnTimeLeft = -810;
+                break;
 
-            case "TURN90DEG_LEFT":
-            waitingTime = 810;
-            direction = false;
-            isTurning = true;
-            break;
+                case "TURN180_LEFT":
+                isTurning = true;
+                turnTimeLeft = -1500;
+                break;
 
-            case "TURN180_LEFT":
-            waitingTime = 1;
-            direction = false;
-            isTurning = true;
-            break;
+                case "TURN45DEG_RIGHT":
+                isTurning = true;
+                turnTimeLeft = 490;
+                break;
 
-            case "TURN45DEG_RIGHT":
-            waitingTime = 490;
-            direction = true;
-            isTurning = true;
-            break;
+                case "TURN90DEG_RIGHT":
+                isTurning = true;
+                turnTimeLeft = 810;
+                break;
 
-            case "TURN90DEG_RIGHT":
-            waitingTime = 810;
-            direction = true;
-            isTurning = true;
-            break;
-
-            case "TURN180DEG_RIGHT":
-            waitingTime = 1500;
-            direction = true;
-            isTurning = true;
-            break;
-            default:
-            targetSpeed = 0;
-            break;
+                case "TURN180DEG_RIGHT":
+                isTurning = true;
+                turnTimeLeft = 1500;
+                break;
+                default:
+                if (!isTurning)
+                {
+                    timoutTimer -= deltaTime;
+                    if (timoutTimer <= 0)
+                        targetSpeed = 0;
+                }
+                break;
+            }
         }
+        turnTimeLeft -= deltaTime;
 
-        if(targetSpeed > getSpeedBasedOnDetectionLevel(detectionLevel))
+        if (turnTimeLeft <= 0 && isTurning)
+            isTurning = false;
+
+        if(targetSpeed > getSpeedBasedOnDetectionLevel(detectionLevel) && !isTurning)
             targetSpeed = getSpeedBasedOnDetectionLevel(detectionLevel);
 
         resolve();
@@ -98,24 +104,19 @@ public class Demo1 implements AiInterface
 
     private void resolve ()
     {
-        if (isTurning)
+        if (!isTurning)
         {
-          if (waitingTime >= 0)
-          {
-             boeBot.rotatedegrees(direction);
-             waitingTime--;
-             System.out.println("isTurning");
-          }
-          isTurning = false;
+            System.out.println("resolve targetSpeed " + targetSpeed);
+
+            if (targetSpeed > 100)
+                targetSpeed = 100;
+            if (targetSpeed < -100)
+                targetSpeed = -100;
+            boeBot.goToSpeedIncrement((int)targetSpeed, 4);
         }
         else
         {
-        
-        if (targetSpeed > 100)
-            targetSpeed = 100;
-        if (targetSpeed < -100)
-            targetSpeed = -100;
-        boeBot.goToSpeedIncrement((int)targetSpeed, 4);
+            boeBot.rotatedegrees(targetSpeed >= 0);
         }
     }
 
