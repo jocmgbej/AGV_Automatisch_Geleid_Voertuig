@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=port
+comment0.target=BoeBotInfraredSignal(int)
+comment0.text=\r\n\ \ port\ \=\ in\ what\ in\ the\ infrared\ sensor\ is\ connected.\r\n
+comment1.params=
+comment1.target=int\ getInfraredSignal()
+comment1.text=\r\n\ reads\ incoming\ infrared\ signals\ from\ a\ remote\ and\ converts\ and\ returns\ this\r\n\ as\ an\ int.\r\n
+numComments=2

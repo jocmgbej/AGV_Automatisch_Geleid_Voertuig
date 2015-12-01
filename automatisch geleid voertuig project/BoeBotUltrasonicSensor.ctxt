@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=inputPort\ outputPort
+comment0.target=BoeBotUltrasonicSensor(int,\ int)
+comment1.params=
+comment1.target=int\ getDistance()
+numComments=2

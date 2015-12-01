@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=port
+comment0.target=BoeBotLed(int)
+comment1.params=
+comment1.target=void\ on()
+comment2.params=
+comment2.target=void\ off()
+comment3.params=color
+comment3.target=void\ setColor(java.awt.Color)
+comment4.params=
+comment4.target=java.awt.Color\ getColor()
+comment5.params=target\ time
+comment5.target=void\ setTarget(java.awt.Color,\ int)
+comment6.params=beginTarget\ endTarget\ time
+comment6.target=void\ setTarget(java.awt.Color,\ java.awt.Color,\ int)
+comment7.params=
+comment7.target=void\ setPwm()
+comment8.params=color
+comment8.target=int\ getBrightness(java.awt.Color)
+numComments=9

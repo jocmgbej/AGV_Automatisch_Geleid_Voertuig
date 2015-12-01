@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=
+comment0.target=SignalCommunication()
+comment0.text=\r\n\ \ Initializes\ a\ new\ BoeBotInfraredSignal\ with\ port\ 0\r\n
+comment1.params=
+comment1.target=java.lang.String\ getInfraredSignal()
+comment1.text=\r\n\ Converts\ the\ ints\ of\ the\ signal\ to\ a\ more\ logical\ String.\r\n
+numComments=2

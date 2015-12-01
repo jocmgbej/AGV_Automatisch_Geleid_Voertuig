@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=port
+comment0.target=BoeBotSpeaker(int)
+comment1.params=frequency\ time
+comment1.target=void\ setSound(int,\ int)
+comment2.params=
+comment2.target=boolean\ isReady()
+numComments=3

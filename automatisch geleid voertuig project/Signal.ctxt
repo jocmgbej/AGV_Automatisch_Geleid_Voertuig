@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Signal()
+comment1.params=deltaTime
+comment1.target=void\ update(int)
+comment2.params=frequency\ time
+comment2.target=void\ playSound(int,\ int)
+comment3.params=frequency\ time
+comment3.target=void\ forcePlaySound(int,\ int)
+comment4.params=id\ state
+comment4.target=void\ setLed(int,\ boolean)
+comment5.params=id\ color
+comment5.target=void\ setLed(int,\ java.awt.Color)
+comment6.params=id
+comment6.target=java.awt.Color\ getColor(int)
+comment7.params=color\ time
+comment7.target=void\ fadeLed1(java.awt.Color,\ int)
+comment8.params=color\ time
+comment8.target=void\ fadeLed2(java.awt.Color,\ int)
+numComments=9

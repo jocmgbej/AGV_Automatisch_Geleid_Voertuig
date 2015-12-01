@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=boeBot
+comment0.target=Demo1(BoeBotInterface)
+comment1.params=deltaTime
+comment1.target=void\ update(int)
+comment2.params=
+comment2.target=void\ setup()
+comment3.params=
+comment3.target=void\ resolve()
+comment4.params=detectionLevel
+comment4.target=int\ getSpeedBasedOnDetectionLevel(int)
+numComments=5

@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=port\ inverted
+comment0.target=BoeBotServo(int,\ boolean)
+comment1.params=speed
+comment1.target=void\ setSpeed(float)
+comment2.params=
+comment2.target=float\ getSpeed()
+comment3.params=speed
+comment3.target=int\ speedToWaveLenght(float)
+comment4.params=waveLenght
+comment4.target=float\ waveLenghtToSpeed(int)
+numComments=5
