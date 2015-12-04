@@ -7,4 +7,3 @@ geef dit ook aan in de commentaar bij de comit.
 
 !Als je commit om definitieve code te uploaden plaats een "//#DEFINITE" in de code
 geef dit ook aan in de commentaar bij de commit.
-
