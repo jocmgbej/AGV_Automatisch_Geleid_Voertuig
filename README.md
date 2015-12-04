@@ -6,5 +6,5 @@ hierin komt alle huidige project code te staan.
 geef dit ook aan in de commentaar bij de comit.
 
 !Als je commit om definitieve code te uploaden plaats een "//#DEFINITE" in de code
-geef dit ook aan in de commentaar bij de commit.
+geef dit ook aan in de commentaar bij de commit. \
 
