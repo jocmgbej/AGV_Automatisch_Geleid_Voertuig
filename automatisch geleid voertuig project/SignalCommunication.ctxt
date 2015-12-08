@@ -7,4 +7,6 @@ comment1.target=SignalCommunication(int)
 comment2.params=
 comment2.target=Button\ getInfraredSignal()
 comment2.text=\r\n\ \ Convert\ the\ infraredsignal\ from\ int\ to\ a\ logical\ String.\r\n
-numComments=3
+comment3.params=
+comment3.target=java.lang.String\ getBluetoothSignal()
+numComments=4
