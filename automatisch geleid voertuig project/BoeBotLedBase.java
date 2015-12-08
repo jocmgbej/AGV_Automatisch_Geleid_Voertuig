@@ -31,4 +31,9 @@ public abstract class BoeBotLedBase
         
         return new Color(red, green, blue);
     }
+    
+    protected static int getBrightness(Color color)
+    {
+        return (color.getRed() + color.getGreen() + color.getBlue())/3;
+    }
 }

@@ -1,27 +1,27 @@
 import TI.*;
 import java.util.Date;
 /**
- * Write a description of class BoeBotSpeaker here.
+ * the speaker
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
 public class BoeBotSpeaker
 {
-    private final int port;
+    private final int PORT;
     private long finishedAt;
     
   
    public BoeBotSpeaker(int port)
    {
-     this.port = port;
+     PORT = port;
    }
    
    public void setSound(int frequency, int time)
    {
        finishedAt = new Date().getTime() + time;
        
-       BoeBot.freqOut(port, frequency, time);
+       BoeBot.freqOut(PORT, frequency, time);
    }
    
    public boolean isReady()

@@ -79,9 +79,4 @@ public class BoeBotLed extends BoeBotLedBase
     {
         pwm.update(255 - getBrightness(this.color));
     }
-    
-    private static int getBrightness(Color color)
-    {
-        return (color.getRed() + color.getGreen() + color.getBlue())/3;
-    }
 }

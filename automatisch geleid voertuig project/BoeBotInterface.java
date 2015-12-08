@@ -8,8 +8,9 @@ import java.awt.Color;
 public interface BoeBotInterface
 {
     // incomming signals
-    public String getInfraredSignal();
+    public Button getInfraredSignal();
     public int getDetectionLevel();
+    public LineReading getLineReading();
     
     // outgoing signals
     public void playSound(int frequency, int time);
@@ -24,6 +25,8 @@ public interface BoeBotInterface
     public void goToSpeedTime(int speed, int time);
     public void rotatedegrees(boolean direction);
     public void emergencyStop();
+    public void goToSpeedIncrementIndividual(int leftSpeed, int rightSpeed, int increment);
+    public void goToSpeedTimeIndividual(int leftSpeed, int rightSpeed, int time);
     
     // update
     public void update(long deltaTime);

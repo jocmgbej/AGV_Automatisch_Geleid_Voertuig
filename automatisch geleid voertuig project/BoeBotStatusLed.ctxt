@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=
+comment0.target=BoeBotStatusLed()
+comment1.params=
+comment1.target=void\ on()
+comment2.params=
+comment2.target=void\ off()
+comment3.params=color
+comment3.target=void\ setColor(java.awt.Color)
+comment4.params=
+comment4.target=java.awt.Color\ getColor()
+numComments=5

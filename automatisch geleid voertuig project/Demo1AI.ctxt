@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.params=boeBot
-comment0.target=Demo1AI(BoeBotInterface)
-comment1.params=deltaTime
-comment1.target=void\ update(int)
-comment2.params=dangerLevel
-comment2.target=int\ getSpeedBasedOnDangerLevel(int)
-numComments=3

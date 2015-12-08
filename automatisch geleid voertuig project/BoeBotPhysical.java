@@ -11,24 +11,29 @@ public class BoeBotPhysical implements BoeBotInterface
     private Signal signal;
     private SignalCommunication signalCommunication;
     private ObstacleDetection obstacleDetection;
-    private Steering2 steering;
+    private Steering steering;
     
     public BoeBotPhysical()
     {
         signal = new Signal();
         signalCommunication = new SignalCommunication();
         obstacleDetection = new ObstacleDetection();
-        steering = new Steering2();
+        steering = new Steering();
     }
     
     // incomming signals
-    public String getInfraredSignal()
+    public Button getInfraredSignal()
     {
         return signalCommunication.getInfraredSignal();
     }
     public int getDetectionLevel()
     {
         return obstacleDetection.getDangerlevel();
+    }
+    public LineReading getLineReading()
+    {
+        // @fix needs to be properly implemented
+        return new LineReading(false, false, false);
     }
     
     // outgoing signals
@@ -79,6 +84,14 @@ public class BoeBotPhysical implements BoeBotInterface
     public void emergencyStop()
     {
         System.out.println("emergencyStop is currently not supported");
+    }
+    public void goToSpeedIncrementIndividual(int leftSpeed, int rightSpeed, int increment)
+    {
+        steering.goToSpeedIncrementIndividual(leftSpeed, rightSpeed, increment);
+    }
+    public void goToSpeedTimeIndividual(int leftSpeed, int rightSpeed, int time)
+    {
+        
     }
     // update
     public void update(long deltaTime)

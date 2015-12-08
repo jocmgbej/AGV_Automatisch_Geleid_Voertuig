@@ -9,21 +9,21 @@ import TI.*;
 
 public class BoeBotUltrasonicSensor
 {
-    private final int inputPort;
-    private final int outputPort;
+    private final int INPUT_PORT;
+    private final int OUTPUT_PORT;
     
     public BoeBotUltrasonicSensor(int inputPort, int outputPort)
     {
-        this.inputPort = inputPort;
-        this.outputPort = outputPort;
+        INPUT_PORT = inputPort;
+        OUTPUT_PORT = outputPort;
     }
     
     public int getDistance()
     {
-        BoeBot.digitalWrite(inputPort, true);
+        BoeBot.digitalWrite(INPUT_PORT, true);
         BoeBot.wait(1);
-        BoeBot.digitalWrite(inputPort, false);
+        BoeBot.digitalWrite(INPUT_PORT, false);
         
-        return BoeBot.pulseIn(outputPort, true, 70000);
+        return BoeBot.pulseIn(OUTPUT_PORT, true, 70000);
     }
 }

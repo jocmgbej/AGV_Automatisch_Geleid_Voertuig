@@ -113,6 +113,7 @@ public class Signal
             timeLeft -= deltaTime;
         }
         
+        BoeBotNeoLed.setNeo();
     }
 
     public void playSound(int frequency, int time)
