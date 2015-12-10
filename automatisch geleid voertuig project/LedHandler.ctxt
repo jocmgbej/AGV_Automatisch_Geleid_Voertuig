@@ -1,4 +1,22 @@
 #BlueJ class context
 comment0.params=
 comment0.target=LedHandler()
-numComments=1
+comment1.params=
+comment1.target=void\ initializeLeds()
+comment2.params=
+comment2.target=void\ update()
+comment3.params=
+comment3.target=void\ forwardLightMotion()
+comment4.params=
+comment4.target=void\ turnOffAllLeds()
+comment5.params=
+comment5.target=void\ turnOnAllLeds()
+comment6.params=color
+comment6.target=void\ turnOnAllLeds(java.awt.Color)
+comment7.params=newLedState
+comment7.target=void\ setState(LedStates)
+comment8.params=
+comment8.target=LedStates\ getCurrentState()
+comment9.params=
+comment9.target=LedStates\ getPreviousState()
+numComments=10
