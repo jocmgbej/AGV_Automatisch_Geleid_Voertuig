@@ -17,8 +17,6 @@ public interface BoeBotInterface
     public void forcePlaySound(int frequency, int time);
     public void setLed(int id, boolean state);
     public void setLed(int led, Color color);
-    public void fadeLed(int led, Color target, int time);
-    public void fadeLed(int led, Color start, Color target, int time);
     
     // controls
     public void goToSpeedIncrement(int speed, int increment);

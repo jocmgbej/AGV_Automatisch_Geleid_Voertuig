@@ -13,6 +13,7 @@ public class Week4 implements AiInterface
     // lineFinding
     private boolean lineFindingDirection;
     private LineReading lastRead;
+    private LedHandler ledHandler;
 
     // custom control
     private int targetSpeed;
@@ -23,6 +24,7 @@ public class Week4 implements AiInterface
     {
         this.boeBot = boeBot;
         state = AiStates.Remote;
+        ledHandler = new LedHandler();
     }
     
     public void update(int deltaTime) // @fix error messages need to be implemented, comments need to be added
@@ -31,6 +33,8 @@ public class Week4 implements AiInterface
         Button button = boeBot.getInfraredSignal();
         int detectionLevel = boeBot.getDetectionLevel();
         LineReading lineReading = boeBot.getLineReading();
+        
+        ledHandler.update();
         
         switch (state)
         {

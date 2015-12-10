@@ -29,7 +29,8 @@ public class BoeBotNeoLed extends BoeBotLedBase
         this.color = color;
         
         BoeBot.rgbSet(PORT, this.color);
-    }
+        setNeo();
+    } 
     
     public Color getColor()
     {
