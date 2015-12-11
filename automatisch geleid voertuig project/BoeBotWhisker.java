@@ -9,15 +9,15 @@ import TI.*;
 
 public class BoeBotWhisker
 {
-    private final int port;
+    private final int PORT;
     
     public BoeBotWhisker(int port)
     {
-        this.port = port;
+        PORT = port;
     }
     
     public boolean getSignal()
     {
-        return BoeBot.digitalRead(port);
+        return BoeBot.digitalRead(PORT);
     }
 }

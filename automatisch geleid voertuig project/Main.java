@@ -8,12 +8,12 @@
 public class Main
 {
     // the time we want a update to take
-    private static final long desiredUpdateTime = (long)1000000000/ 50;
+    private static final long desiredUpdateTime = (long)1000000000/ 100;
     
     public static void main(String[] args)
     {
-        BoeBotInterface boeBot = new BoeBotPhysical();
-        AiInterface ai = new Demo1(boeBot);
+        BoeBotInterface boeBot = new BoeBotEmpty();
+        AiInterface ai = new Week4(boeBot);
         
         long lastTime = System.nanoTime();
         

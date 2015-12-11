@@ -10,13 +10,23 @@ import java.util.ArrayList;
  */
 public class Signal
 {
-    public static final int left = 0, right = 1;
-
+    private static Signal instance;
+    public static Signal getInstance()
+    {
+        if(instance != null)
+            return instance;
+            else
+            {
+                instance = new Signal();
+                return instance;
+            }
+    }
+    
     private BoeBotSpeaker speaker;
     private BoeBotLedBase[] leds;
+    
+    private boolean playSound;
 
-    //booleans
-    private boolean playSound, fadeLed1, fadeLed2;
     // playSound
     private class Sound
     {
@@ -43,24 +53,33 @@ public class Signal
     private ArrayList<Sound> soundQueue;
     private int timeLeft;
 
-    //led1
-    private Color color1;
-    private int time1;
-
-    //led2
-    private Color color2;
-    private int time2;
-    public Signal()
+    private Signal()
     {
         speaker = new BoeBotSpeaker(5);
-        leds = new BoeBotLedBase[2];
+        leds = new BoeBotLedBase[6];
         soundQueue = new ArrayList<Sound>();
-        leds[0] = new BoeBotLed(0);
-        leds[1] = new BoeBotLed(1);
-        color1 = new Color(0,0,0);
-        color2 = new Color(0,0,0);
+        initializeNeoLeds();//does what it sais 
+        instance = this;
     }
 
+    private void initializeNeoLeds()
+    {
+        for(int i = 0; i < 6; i++)
+            leds[i] = new BoeBotNeoLed(i);
+    }
+    
+    public void turnOffAllNeoLeds()
+    {
+        for(int i = 0; i < 6; i++)
+            leds[i].off();
+    }
+    
+    public void turnOnAllNeoLeds()
+    {
+        for(int i = 0; i < 6; i++)
+            leds[i].on();
+    }
+    
     public void update(int deltaTime)
     {
 
@@ -85,34 +104,8 @@ public class Signal
             timeLeft -= deltaTime;
         }
         
-        if(fadeLed1)
-        {
-            if(timeLeft <= 0 )
-            {
-                timeLeft = time1;
-                int step = (int) (100/time1);
-                for (int i=0; i < 100; i += step)
-                {  
-                    leds[0].setColor(BoeBotLedBase.addColors(leds[0].getColor(), color1, step));
-                }
-            }
-            timeLeft -= deltaTime;
-        }
         
-        if(fadeLed2)
-        {
-            if(timeLeft <= 0)
-            {
-                timeLeft = time2;
-                int step = (int) (100/time2);
-                for (int i=0; i < 100; i += step)
-                {   
-                    leds[1].setColor(BoeBotLedBase.addColors(leds[1].getColor(), color2, step));
-                }
-            }
-            timeLeft -= deltaTime;
-        }
-        
+        BoeBotNeoLed.setNeo();
     }
 
     public void playSound(int frequency, int time)
@@ -146,33 +139,4 @@ public class Signal
         return leds[id].getColor();
     }
 
-    public void fadeLed1 (Color color, int time)
-    {
-        boolean fadeLed1 = true;
-        color1 = color;
-        time1 = time;
-    }
-    
-    public void fadeLed2 (Color color, int time)
-    {
-        boolean fadeLed2 = true;
-        color2 = color;
-        time2 = time;
-    }
-
-    /*
-    private int LedToIndex(Led led)
-    {
-    switch(led)
-    {
-    case left:
-    return 0;
-    case right:
-    return 1;
-    default:
-    Error.makeError("SIG 001", "invalid led");
-    return 0;
-    }
-    }
-     */
 }

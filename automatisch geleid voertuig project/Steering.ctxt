@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Steering()
+comment1.params=deltaTime
+comment1.target=void\ update(int)
+comment2.params=targetSpeed\ increment
+comment2.target=void\ goToSpeedIncrement(float,\ float)
+comment3.params=
+comment3.target=void\ getSpeed()
+comment4.params=leftSpeed\ rightSpeed\ increment
+comment4.target=void\ goToSpeedIncrementIndividual(int,\ int,\ int)
+comment5.params=direction
+comment5.target=void\ TurnDegrees(boolean)
+comment6.params=degrees
+comment6.target=void\ turnDegrees(int)
+numComments=7

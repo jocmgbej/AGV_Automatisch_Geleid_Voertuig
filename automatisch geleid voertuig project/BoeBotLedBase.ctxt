@@ -11,4 +11,6 @@ comment4.params=
 comment4.target=java.awt.Color\ getColor()
 comment5.params=a\ b\ strength
 comment5.target=java.awt.Color\ addColors(java.awt.Color,\ java.awt.Color,\ int)
-numComments=6
+comment6.params=color
+comment6.target=int\ getBrightness(java.awt.Color)
+numComments=7
